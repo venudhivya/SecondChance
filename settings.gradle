@@ -1,0 +1,2 @@
+rootProject.name='secondchance'
+include ':app'
