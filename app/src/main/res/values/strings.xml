@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">secondchance</string>
+    <string name="app_name">2chance</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_username">Username</string>

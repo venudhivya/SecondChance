@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.JsonObject;
 import com.secondchance.R;
 import com.secondchance.SecondChanceApplication;
 import com.secondchance.model.registerresponsemodel;
@@ -18,24 +19,31 @@ import com.secondchance.service.RetrofitRestClient;
 import com.secondchance.ui.login.LoginActivity;
 import com.secondchance.utils.Configuration;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RegisterAppActivity extends AppCompatActivity implements View.OnClickListener{
+public class RegisterAppActivity extends AppCompatActivity implements View.OnClickListener {
     SecondChanceApplication secondChanceApplication;
     Button register_btn;
     TextView signin_btn;
     EditText email;
     EditText password;
     EditText phone_num;
+    String emailidStr;
+    String passwordStr;
+    String phone_numStr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_layout);
-        secondChanceApplication =(SecondChanceApplication)getApplicationContext();
+        secondChanceApplication = (SecondChanceApplication) getApplicationContext();
 
         register_btn = findViewById(R.id.register_btn);
         signin_btn = findViewById(R.id.signin_btn);
@@ -45,7 +53,9 @@ public class RegisterAppActivity extends AppCompatActivity implements View.OnCli
         register_btn.setOnClickListener(this);
         signin_btn.setOnClickListener(this);
 
-
+        emailidStr = email.getText().toString();
+        passwordStr = password.getText().toString();
+        phone_numStr = phone_num.getText().toString();
 
     }
 
@@ -54,8 +64,15 @@ public class RegisterAppActivity extends AppCompatActivity implements View.OnCli
             //creating the api interface
             RetrofitApi api = new RetrofitRestClient().urlInfoRetrofit(Configuration.BASE_URL);
 
-
-            Call<registerresponsemodel> call = api.getregisterResponse(Configuration.HEADER,email.getText().toString(),password.getText().toString(),phone_num.getText().toString());
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("email", email.getText().toString());
+                jsonObject.put("password", password.getText().toString());
+                jsonObject.put("phone_number", phone_num.getText().toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Call<registerresponsemodel> call = api.getregisterResponse(jsonObject);
 
             call.enqueue(new Callback<registerresponsemodel>() {
                 @Override
@@ -87,13 +104,11 @@ public class RegisterAppActivity extends AppCompatActivity implements View.OnCli
 
         int id = v.getId();
 
-        if(id == R.id.register_btn)
-        {
+        if (id == R.id.register_btn) {
 
 
             callRegisterApi();
-        }else if(id == R.id.signin_btn)
-        {
+        } else if (id == R.id.signin_btn) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

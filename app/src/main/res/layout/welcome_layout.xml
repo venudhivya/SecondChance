@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/initial_image"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/initial"
         android:contentDescription="@string/welcome"
         tools:ignore="MissingConstraints"></ImageView>
@@ -25,9 +25,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
+android:layout_gravity="bottom"
+        android:gravity="bottom"
         android:layout_marginBottom="20dp"
         android:weightSum="2">
 

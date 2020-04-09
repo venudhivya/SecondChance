@@ -136,24 +136,24 @@ public class RetrofitRestClient {
         Gson gson = new GsonBuilder().create();
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request original = chain.request();
-
-                Request request = original.newBuilder()
-                        .header(Configuration.HEADER_KEY, Configuration.HEADER_VALUE)
-                        .build();
-
-                return chain.proceed(request);
-            }
-        });
+//        httpClient.addInterceptor(new Interceptor() {
+//            @Override
+//            public Response intercept(Chain chain) throws IOException {
+//                Request original = chain.request();
+//
+//                Request request = original.newBuilder()
+//                        .header(Configuration.HEADER_KEY, Configuration.HEADER_VALUE)
+//                        .build();
+//
+//                return chain.proceed(request);
+//            }
+//        });
         OkHttpClient client = httpClient.build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(trustcert(client, "180"))
+                .client(trustcert(client, "300"))
                 .build();
         return retrofit.create(RetrofitApi.class);
     }

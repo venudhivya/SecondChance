@@ -58,23 +58,51 @@
                 android:text="@string/your_pwd"
 
                 android:textColor="@color/gray"></TextView>
-
-            <EditText
-                android:id="@+id/password"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filledTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:autofillHints="@string/prompt_password"
-                android:hint="@string/prompt_password"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/username" />
+                android:layout_marginEnd="20dp"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/gray"
+                app:hintEnabled="false"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/password"
+
+                    android:layout_height="wrap_content"
+                    android:autofillHints="@string/prompt_password"
+                    android:hint="@string/prompt_password"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="true"
+                    android:text="@string/register_text"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+<!--            <EditText-->
+
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="24dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginEnd="24dp"-->
+<!--                android:autofillHints="@string/prompt_password"-->
+<!--                android:hint="@string/prompt_password"-->
+<!--                android:imeActionLabel="@string/action_sign_in_short"-->
+<!--                android:imeOptions="actionDone"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:selectAllOnFocus="true"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/username" />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -179,14 +207,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/facebook"></ImageView>
+                        android:background="@drawable/gmail"></ImageView>
 
                     <ImageView
                         android:id="@+id/linkedin_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/facebook"></ImageView>
+                        android:background="@drawable/linkenin"></ImageView>
                 </LinearLayout>
             </LinearLayout>
 
