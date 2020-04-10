@@ -84,7 +84,6 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:selectAllOnFocus="true"
-                    android:text="@string/register_text"
 
                     />
 

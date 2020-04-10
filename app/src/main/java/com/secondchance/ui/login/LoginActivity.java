@@ -2,6 +2,7 @@ package com.secondchance.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,28 +80,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     if (success.equals("true")) {
                         Toast.makeText(getApplicationContext(), "LOGIN Successfull", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
+                        finish();
+//                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                        startActivity(intent);
                         finish();
                     } else if (success.equals("false")) {
                         Toast.makeText(getApplicationContext(), "User already exist", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(getApplicationContext(), "Failed to register", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "LOGIN Failed", Toast.LENGTH_SHORT).show();
 
                     }
 
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+
 
                 }
 
                 @Override
                 public void onFailure(Call<loginreponsemodel> call, Throwable t) {
                     loading.setVisibility(View.GONE);
-                    Toast.makeText(getApplicationContext(), "Failed to register", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -119,17 +120,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         int id = v.getId();
         if (id == R.id.login_btn) {
-            if(emailid.getText().toString().trim().length()==0){
-                emailid.setError("Username is not entered");
-                emailid.requestFocus();
+            boolean isEmailValid =false;
+            boolean isPasswordValid =false;
+
+            if (emailid.getText().toString().isEmpty()) {
+                emailid.setError(getResources().getString(R.string.email_error));
+                isEmailValid = false;
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(emailid.getText().toString()).matches()) {
+                emailid.setError(getResources().getString(R.string.error_invalid_email));
+                isEmailValid = false;
+            } else {
+                isEmailValid = true;
             }
-            if(password.getText().toString().trim().length()==0){
-                password.setError("Password is not entered");
-                password.requestFocus();
+
+
+            // Check for a valid password.
+            if (password.getText().toString().isEmpty()) {
+                password.setError(getResources().getString(R.string.password_error));
+                isPasswordValid = false;
+            } else if (password.getText().length() < 6) {
+                password.setError(getResources().getString(R.string.error_invalid_password));
+                isPasswordValid = false;
+            } else {
+                isPasswordValid = true;
             }
-            else{
+            if(isEmailValid  && isPasswordValid)
+            {
                 callLoginApi();
             }
+
+
 
 
         } else if (id == R.id.reg_btn) {

@@ -36,4 +36,11 @@
     <string name="verification_code">Please enter your verfication code</string>
     <string name="verification_code1">We have send you a  verification code to your registered email ID.</string>
     <string name="done">DONE</string>
+    <string name="name_error">Please enter your name</string>
+    <string name="phone_error">Please enter a phone number</string>
+    <string name="error_invalid_phone">Please enter a valid phone number</string>
+    <string name="email_error">Please enter a email address</string>
+    <string name="error_invalid_email">Email is not valid</string>
+    <string name="password_error">Please enter a password</string>
+    <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
 </resources>
