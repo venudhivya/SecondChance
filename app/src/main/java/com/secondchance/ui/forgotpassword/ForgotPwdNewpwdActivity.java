@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class ForgotPwdNewpwdActivity extends AppCompatActivity implements View.O
     SecondChanceApplication secondChanceApplication;
     StorageUtil mStore;
     ProgressBar loading;
+    ImageView back_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class ForgotPwdNewpwdActivity extends AppCompatActivity implements View.O
         next_btn = findViewById(R.id.next_btn);
         loading = findViewById(R.id.loading);
         next_btn.setOnClickListener(this);
+        back_img = findViewById(R.id.back_img);
+        back_img.setOnClickListener(this);
 
     }
 
@@ -144,6 +148,10 @@ public class ForgotPwdNewpwdActivity extends AppCompatActivity implements View.O
             }
 
 
+        } else if (id == R.id.back_img) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
     }

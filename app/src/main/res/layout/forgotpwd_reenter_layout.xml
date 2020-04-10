@@ -5,19 +5,42 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="@drawable/gradient"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/gray"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/back_arrow"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Reset Password"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linear_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_header"
         android:orientation="vertical">
-
 
 
         <ImageView
@@ -25,15 +48,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="55dp"
             android:background="@drawable/reset_pwd_lock"></ImageView>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/linear_img"
         android:id="@+id/linear_confirm_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_img"
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -41,27 +64,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="24dp"
             android:text="@string/reset_pwd"
             android:textColor="@color/gray"
+            android:textSize="18sp"
             android:textStyle="bold"></TextView>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="38dp"
             android:layout_marginEnd="20dp"
-            app:passwordToggleEnabled="true"
-            android:textColorHint="@color/gray"
             android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
             app:hintEnabled="false"
-            >
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/current_password"
+                android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/prompt_password"
@@ -74,6 +98,7 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField1"
             android:layout_width="match_parent"
@@ -81,15 +106,14 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
-            app:passwordToggleEnabled="true"
-            android:textColorHint="@color/gray"
             android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
             app:hintEnabled="false"
-            >
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/new_password"
+                android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/prompt_password"
@@ -102,6 +126,7 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField2"
             android:layout_width="match_parent"
@@ -109,15 +134,14 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
-            app:passwordToggleEnabled="true"
-            android:textColorHint="@color/gray"
             android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
             app:hintEnabled="false"
-            >
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/prompt_password"
@@ -136,14 +160,15 @@
 
     <Button
         android:id="@+id/next_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_below="@+id/linear_confirm_pwd"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="48dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:layout_marginBottom="34dp"
-        android:layout_centerInParent="true"
         android:background="@drawable/roundedbutton"
         android:paddingLeft="80dp"
         android:paddingRight="80dp"
@@ -155,6 +180,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 </RelativeLayout>

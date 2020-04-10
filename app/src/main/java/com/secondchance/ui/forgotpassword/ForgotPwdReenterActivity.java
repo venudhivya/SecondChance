@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class ForgotPwdReenterActivity extends AppCompatActivity implements View.
     EditText confirm_password;
     Button done;
     ProgressBar loading;
+    ImageView back_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,8 @@ public class ForgotPwdReenterActivity extends AppCompatActivity implements View.
         done = findViewById(R.id.next_btn);
         done.setOnClickListener(this);
         loading = findViewById(R.id.loading);
-
+        back_img = findViewById(R.id.back_img);
+        back_img.setOnClickListener(this);
     }
 
     private void callreenterpwdwithApi() {
@@ -158,6 +161,10 @@ public class ForgotPwdReenterActivity extends AppCompatActivity implements View.
             }
 
 
+        }else if (id == R.id.back_img) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }

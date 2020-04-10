@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class ForgotPwdOTPActivity extends AppCompatActivity implements View.OnCl
     Button next_btn;
     SecondChanceApplication secondChanceApplication;
     StorageUtil mStore;
+    ImageView back_img;
 ProgressBar loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,8 @@ ProgressBar loading;
         next_btn = findViewById(R.id.next_btn);
 
         next_btn.setOnClickListener(this);
-
+        back_img = findViewById(R.id.back_img);
+        back_img.setOnClickListener(this);
 
     }
 
@@ -122,6 +125,10 @@ ProgressBar loading;
                 editTexOne.setError("Please enter valid OTP");
             }
 
+        }else if (id == R.id.back_img) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
 

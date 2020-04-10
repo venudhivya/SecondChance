@@ -40,6 +40,8 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     SecondChanceApplication secondChanceApplication;
     StorageUtil mStore;
     ProgressBar loading;
+    ImageView back_img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         img_forgot_pwd = findViewById(R.id.img_forgot_pwd);
         linear_email = findViewById(R.id.linear_email);
         next_btn.setOnClickListener(this);
+        back_img = findViewById(R.id.back_img);
+        back_img.setOnClickListener(this);
 
     }
 
@@ -81,7 +85,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
 
                         Intent intent = new Intent(getApplicationContext(), ForgotPwdOTPActivity.class);
                         startActivity(intent);
-                        fileList();
+                        finish();
                     } else if (success.equals("false")) {
                         Toast.makeText(getApplicationContext(), data, Toast.LENGTH_SHORT).show();
 
@@ -131,6 +135,10 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                 callForgotPwdApi();
             }
 
+        } else if (id == R.id.back_img) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }
