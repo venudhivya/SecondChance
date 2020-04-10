@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,14 +35,14 @@ public class ForgotPwdOTPActivity extends AppCompatActivity implements View.OnCl
     Button next_btn;
     SecondChanceApplication secondChanceApplication;
     StorageUtil mStore;
-
+ProgressBar loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgotpwd_otp_layout);
         secondChanceApplication = (SecondChanceApplication)getApplicationContext();
         mStore = StorageUtil.getInstance(getApplicationContext());
-
+        loading = findViewById(R.id.loading);
         linear_verification = findViewById(R.id.linear_verification);
         editTexOne = findViewById(R.id.editTexOne);
         editTexTwo = findViewById(R.id.editTextwo);
@@ -55,7 +56,7 @@ public class ForgotPwdOTPActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void callotpvalidateApi() {
-//        loading.setVisibility(View.VISIBLE);
+        loading.setVisibility(View.VISIBLE);
         if (secondChanceApplication.isNetworkAvailable()) {
             //creating the api interface
             RetrofitApi api = new RetrofitRestClient().urlInfoRetrofit(Configuration.BASE_URL);
@@ -67,7 +68,7 @@ public class ForgotPwdOTPActivity extends AppCompatActivity implements View.OnCl
             call.enqueue(new Callback<forgotpwdreponsemodel>() {
                 @Override
                 public void onResponse(Call<forgotpwdreponsemodel> call, Response<forgotpwdreponsemodel> response) {
-//                    loading.setVisibility(View.GONE);
+                    loading.setVisibility(View.GONE);
 
                     forgotpwdreponsemodel forgotpwdreponsemodel = response.body();
 
@@ -80,11 +81,12 @@ public class ForgotPwdOTPActivity extends AppCompatActivity implements View.OnCl
 
                         Intent intent = new Intent(getApplicationContext(), ForgotPwdNewpwdActivity.class);
                         startActivity(intent);
+                        finish();
                     } else if (success.equals("false")) {
                         Toast.makeText(getApplicationContext(), data, Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(getApplicationContext(), "Failed to validate OTP", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Failed! Enter valid OTP", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -94,8 +96,8 @@ public class ForgotPwdOTPActivity extends AppCompatActivity implements View.OnCl
 
                 @Override
                 public void onFailure(Call<forgotpwdreponsemodel> call, Throwable t) {
-//                    loading.setVisibility(View.GONE);
-                    Toast.makeText(getApplicationContext(), "Failed to validate OTP", Toast.LENGTH_SHORT).show();
+                    loading.setVisibility(View.GONE);
+                    Toast.makeText(getApplicationContext(), "Failed! Enter valid OTP", Toast.LENGTH_SHORT).show();
 
 
                 }

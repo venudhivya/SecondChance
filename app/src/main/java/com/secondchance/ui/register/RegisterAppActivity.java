@@ -61,7 +61,7 @@ public class RegisterAppActivity extends AppCompatActivity implements View.OnCli
         facebook_img = findViewById(R.id.facebook_img);
         register_btn.setOnClickListener(this);
         signin_btn.setOnClickListener(this);
-facebook_img.setOnClickListener(this);
+        facebook_img.setOnClickListener(this);
         emailidStr = email.getText().toString();
         passwordStr = password.getText().toString();
         phone_numStr = phone_num.getText().toString();
@@ -87,7 +87,7 @@ facebook_img.setOnClickListener(this);
                     data data = registerresponsemodel.getData();
                     String userid = data.getUserId();
                     mStore.setString("USERID", userid);
-                    mStore.setString("USERNAME",username_text.getText().toString());
+                    mStore.setString("USERNAME", username_text.getText().toString());
                     String message = data.getMessage();
 
                     if (success.equals("true")) {
@@ -139,8 +139,7 @@ facebook_img.setOnClickListener(this);
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
-        }else if(id == R.id.facebook_img)
-        {
+        } else if (id == R.id.facebook_img) {
             Intent intent = new Intent(this, ForgotPwdReenterActivity.class);
             startActivity(intent);
             finish();
@@ -183,7 +182,7 @@ facebook_img.setOnClickListener(this);
         if (phone_num.getText().toString().isEmpty()) {
             phone_num.setError(getResources().getString(R.string.phone_error));
             isPhoneValid = false;
-        } else if (phone_num.getText().length()<10|| phone_num.getText().length()>10) {
+        } else if (phone_num.getText().length() < 10 || phone_num.getText().length() > 10) {
             phone_num.setError(getResources().getString(R.string.error_invalid_phone));
         } else {
             isPhoneValid = true;

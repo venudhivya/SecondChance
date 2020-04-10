@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.secondchance.R;
 import com.secondchance.ui.register.RegisterAppActivity;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
+public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
     Button login_button;
     Button register_button;
 
@@ -28,13 +29,11 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if(id == R.id.login_button)
-        {
-            Intent intent = new Intent(this,LoginActivity.class);
+        if (id == R.id.login_button) {
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
-        }else if(id == R.id.register_button)
-        {
+        } else if (id == R.id.register_button) {
             Intent intent = new Intent(this, RegisterAppActivity.class);
             startActivity(intent);
             finish();

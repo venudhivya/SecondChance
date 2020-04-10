@@ -95,7 +95,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
 
 
-
                 }
 
                 @Override
@@ -120,8 +119,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         int id = v.getId();
         if (id == R.id.login_btn) {
-            boolean isEmailValid =false;
-            boolean isPasswordValid =false;
+            boolean isEmailValid = false;
+            boolean isPasswordValid = false;
 
             if (emailid.getText().toString().isEmpty()) {
                 emailid.setError(getResources().getString(R.string.email_error));
@@ -144,12 +143,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } else {
                 isPasswordValid = true;
             }
-            if(isEmailValid  && isPasswordValid)
-            {
+            if (isEmailValid && isPasswordValid) {
                 callLoginApi();
             }
-
-
 
 
         } else if (id == R.id.reg_btn) {
