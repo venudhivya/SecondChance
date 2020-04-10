@@ -1,15 +1,7 @@
 package com.secondchance.model;
 
-public class registerresponsemodel {
-    public String getSuccess() {
-        return success;
-    }
+public class data {
 
-    public void setSuccess(String success) {
-        this.success = success;
-    }
-
-    String success;
     public String getUserId() {
         return userId;
     }
@@ -29,16 +21,22 @@ public class registerresponsemodel {
     String userId;
     String message;
 
-
-    public com.secondchance.model.data getData() {
-        return data;
+    public String getEmail() {
+        return email;
     }
 
-    data data;
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-
-
-
+    String email;
+    String password;
 }

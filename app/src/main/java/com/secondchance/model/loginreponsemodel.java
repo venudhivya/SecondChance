@@ -1,6 +1,7 @@
 package com.secondchance.model;
 
-public class registerresponsemodel {
+public class loginreponsemodel {
+
     public String getSuccess() {
         return success;
     }
@@ -35,10 +36,6 @@ public class registerresponsemodel {
     }
 
     data data;
-
-
-
-
 
 
 }

@@ -3,6 +3,9 @@ package com.secondchance.service;
 
 
 import com.google.gson.JsonObject;
+import com.secondchance.model.loginreponsemodel;
+import com.secondchance.model.loginrequestmodel;
+import com.secondchance.model.registerrequestmodel;
 import com.secondchance.model.registerresponsemodel;
 
 import org.json.JSONObject;
@@ -18,9 +21,12 @@ import retrofit2.http.Query;
 
 public interface RetrofitApi {
 
-    @Headers("Content-Type: application/json")
     @POST("create_user")
-    Call<registerresponsemodel> getregisterResponse(@Body JSONObject jsonObject);
+    Call<registerresponsemodel> getregisterResponse(@Body registerrequestmodel jsonObject);
+
+
+    @POST("login")
+    Call<loginreponsemodel> getloginResponse(@Body loginrequestmodel jsonObject);
 
 
 
