@@ -46,6 +46,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         setContentView(R.layout.forgot_pwd_layout);
         secondChanceApplication = (SecondChanceApplication) getApplicationContext();
         mStore = StorageUtil.getInstance(getApplicationContext());

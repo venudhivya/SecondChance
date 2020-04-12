@@ -48,6 +48,7 @@ public class RegisterAppActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         setContentView(R.layout.register_layout);
         secondChanceApplication = (SecondChanceApplication) getApplicationContext();
         loading = findViewById(R.id.loading);

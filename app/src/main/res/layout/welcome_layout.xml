@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/initial_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="320dp"
         android:background="@drawable/initial"
         android:contentDescription="@string/welcome"
         tools:ignore="MissingConstraints"></ImageView>
@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:textColor="@color/gray"
-        android:textSize="18dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         android:text="@string/welcome"></TextView>
 
     <LinearLayout

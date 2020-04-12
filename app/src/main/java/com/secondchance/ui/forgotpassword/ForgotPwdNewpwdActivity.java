@@ -41,6 +41,7 @@ public class ForgotPwdNewpwdActivity extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         secondChanceApplication = (SecondChanceApplication) getApplicationContext();
         mStore = StorageUtil.getInstance(getApplicationContext());
         setContentView(R.layout.forgotpwd_new_layout);

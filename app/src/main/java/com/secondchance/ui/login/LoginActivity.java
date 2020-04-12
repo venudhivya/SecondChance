@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         setContentView(R.layout.login_layout);
         secondChanceApplication = (SecondChanceApplication) getApplicationContext();
         loading = findViewById(R.id.loading);

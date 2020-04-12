@@ -39,6 +39,7 @@ public class ForgotPwdReenterActivity extends AppCompatActivity implements View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         setContentView(R.layout.forgotpwd_reenter_layout);
         secondChanceApplication = (SecondChanceApplication) getApplicationContext();
         mStore = StorageUtil.getInstance(getApplicationContext());
@@ -151,10 +152,10 @@ public class ForgotPwdReenterActivity extends AppCompatActivity implements View.
                     if (!new_password.getText().toString().equals(current_password.getText().toString())) {
                         callreenterpwdwithApi();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Current password and New password shold be the different!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Current password and New password shold be different!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "New password and conformed password shoud be the same!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "New password and conformed password shoud be same!", Toast.LENGTH_SHORT).show();
                 }
 
 

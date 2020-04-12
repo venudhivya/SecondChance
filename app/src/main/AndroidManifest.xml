@@ -13,20 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.login.WelcomeActivity">
+        <activity android:name=".ui.login.WelcomeActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.forgotpassword.ForgotPasswordActivity"></activity>
-        <activity android:name=".ui.register.RegisterAppActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ui.login.LoginActivity"></activity>
-        <activity android:name=".ui.forgotpassword.ForgotPwdNewpwdActivity"></activity>
-<activity android:name=".ui.forgotpassword.ForgotPwdOTPActivity"></activity>
-        <activity android:name=".ui.forgotpassword.ForgotPwdReenterActivity"></activity>
+        <activity android:name=".ui.forgotpassword.ForgotPasswordActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".ui.register.RegisterAppActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.login.LoginActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.forgotpassword.ForgotPwdNewpwdActivity"
+            android:screenOrientation="portrait"></activity>
+<activity android:name=".ui.forgotpassword.ForgotPwdOTPActivity"
+    android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.forgotpassword.ForgotPwdReenterActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

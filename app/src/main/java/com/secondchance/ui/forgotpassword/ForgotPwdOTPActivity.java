@@ -41,6 +41,7 @@ ProgressBar loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout, R.anim.fadein);
         setContentView(R.layout.forgotpwd_otp_layout);
         secondChanceApplication = (SecondChanceApplication)getApplicationContext();
         mStore = StorageUtil.getInstance(getApplicationContext());

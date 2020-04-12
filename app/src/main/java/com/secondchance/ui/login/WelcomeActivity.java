@@ -18,6 +18,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadeout,R.anim.fadein);
         setContentView(R.layout.welcome_layout);
 
         login_button = findViewById(R.id.login_button);
